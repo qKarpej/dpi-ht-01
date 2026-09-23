@@ -161,7 +161,7 @@ export default function Review() {
                   <td>Disposal cost of damaged stock</td>
                   <td>Disclose only, no obligating event at 31 Aug</td>
                   <td>Provide 2,000, net realisable value is negative</td>
-                  <td>Agent 2 accepted</td>
+                  <td>2,000 kept, but only as a labelled assumption (U-10)</td>
                   <td className="num neg">(2,000)</td>
                 </tr>
                 <tr>
@@ -191,7 +191,9 @@ export default function Review() {
           <h2>Low-confidence decisions <span className="pill low">{lowConf.length}</span></h2>
           <p className="lede">
             All but one arise from the same cause: the answer template asks a question the data
-            room cannot answer. Nothing was estimated to fill a gap.
+            room cannot answer, and nothing was estimated to fill a gap. The exception is D072,
+            flagged low not for missing evidence but because its 2,000 disposal provision is a
+            labelled assumption rather than a required accrual.
           </p>
           <div className="tablewrap">
             <table>
@@ -204,6 +206,8 @@ export default function Review() {
                     <td style={{ fontSize: 13, color: "var(--muted)" }}>
                       {d.id === "D034" || d.id === "D060" || d.id === "D078"
                         ? "No insurance transaction, invoice, policy or balance exists anywhere in the data room. Reported as nil with the absence stated."
+                        : d.id === "D072"
+                        ? "Not a data gap: the 2,000 disposal provision is accrued as a labelled assumption rather than a required IAS 37 accrual, since no present obligation is evidenced at 31 August. See U-10 for the 74,000 no-provision alternative."
                         : "No monthly payroll evidence exists. The bank carries one combined line of 231,000 for January to August, so month-level amounts are unevidenced."}
                     </td>
                   </tr>

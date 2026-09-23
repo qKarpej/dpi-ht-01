@@ -8,6 +8,12 @@ import type { Reconciliation, Schedule, Uncertainty } from "./types";
  * challenge: cost of materials (405,000 -> 396,000, with closing
  * inventory 112,000 -> 121,000) and the disposal provision (nil ->
  * 2,000). Both changes are recorded in decisions D048, D072 and D075.
+ *
+ * The 2,000 disposal provision at D072 is retained as a labelled
+ * assumption, not a required IAS 37 accrual -- no present obligation is
+ * evidenced at 31 August. See uncertainty U-10 for the fully defensible
+ * no-provision alternative: certified profit 74,000, liabilities
+ * 406,000, equity 134,000.
  * ------------------------------------------------------------------ */
 
 export const REPORTING_DATE = "2026-08-31";
@@ -511,6 +517,16 @@ export const uncertainties: Uncertainty[] = [
     treatment:
       "Assumed nil for want of any evidence: opening accrued interest; the split of opening equity between capital and retained earnings; depreciation policy, useful lives and any asset register; accruals for rent, utilities, marketing and software at 31 August, which is optimistic given that payroll and suppliers both had material unpaid balances; costs already incurred on the two September events; and foreign currency, although customers are in the USA and the UK and no rates or contract currencies are given. Recovery of the 110,000 taken by the founder is treated as a legal question, not an accounting one, as no repayment agreement or security exists.",
   },
+  {
+    item: "U-10 Disposal provision recognition basis (D072)",
+    basis: 2_000,
+    low: 0,
+    high: 2_000,
+    effect:
+      "Labelled assumption, not a required accrual. Certified profit is 72,000 with the 2,000 provision accrued; the no-provision alternative, disclosing the 2,000 disposal cost as a note instead, is certified profit 74,000, liabilities 406,000 and equity 134,000. The balance sheet balances either way.",
+    treatment:
+      "IAS 37 requires a present legal or constructive obligation arising from a past event before a cost can be accrued as a liability. The only evidence is a disposal quote obtained for costing purposes (E-05, E-11); at 31 August no disposal had been commissioned, ordered or publicly committed to, so no obligating event is evidenced, and 'negative net realisable value' is a measurement heuristic rather than a substitute for the obligation test — inventory cannot be carried below nil, and the 22,000 write-down at D058 already exhausts the asset. The 2,000 is retained in the certified 72,000 result as an explicit, disclosed conservatism assumption because removal of the damaged stock is highly probable in substance, not because it is required. The board should treat 72,000 as the assumption-based figure and 74,000 as the fully defensible disclosure-only alternative.",
+  },
 ];
 
 export const scenarioRange = {
@@ -549,6 +565,7 @@ export const boardRecommendation = {
   keyUncertainties: [
     "Inventory and COGS: 121,000 base, range 112,000-121,000. The roll-forward and the physical count disagree by 9,000 and cannot be reconciled from the file.",
     "Legal provision: 25,000 base, range 20,000-30,000 per counsel.",
+    "Disposal provision: 2,000 accrued as a labelled assumption, not a required accrual -- no present obligation is evidenced at 31 August. The no-provision alternative, disclosure only, certifies profit at 74,000 instead of 72,000 (U-10).",
     "Leases: unquantifiable. The file named for leases contains none, and rent of 48,000 was paid with no contract on file.",
     "Insurance: nil recorded, no policy found, no claim made on stock destroyed by a leaking pipe.",
     "Further receivable impairment: up to 35,000 if the web channel ageing proves as bad as the collection rate suggests.",

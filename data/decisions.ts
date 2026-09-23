@@ -890,20 +890,20 @@ export const decisions: Decision[] = [
     reviewTier: "material_judgment",
     question: "Estimate Damaged inventory write-off and document the basis.",
     answer:
-      "22,000 written off against inventory, plus a separate provision of 2,000 for the disposal cost. Total charge 24,000.",
+      "22,000 written off against inventory (carried at D058), plus a 2,000 disposal provision retained as a labelled assumption rather than a required accrual. Total charge shown 24,000; the disclosure-only alternative is 22,000, which certifies profit at 74,000 instead of 72,000. See U-10.",
     evidence: ["E-05 basement stock 22,000, disposal quote 2,000 not included in carrying value", "E-11 independent stock assessment"],
-    confidence: "medium",
+    confidence: "low",
     aiProposal:
       "Write off 22,000 only. Disclose the 2,000 disposal quote but do not accrue it, because at 31 August no disposal had been commissioned and no obligating event had occurred.",
     independentChallenge:
       "The independent analysis provided for the 2,000 as well, on a measurement rather than an obligation argument: inventory is carried at the lower of cost and net realisable value, and net realisable value is selling price less costs to sell, which here is nil less 2,000, so net realisable value is negative. A negative net realisable value cannot be carried as a negative asset, so the correct presentation is a 22,000 write-down of the asset plus a 2,000 liability.",
     studentReasoning:
-      "I changed my answer. My original reasoning asked the wrong question. I tested whether a disposal obligation existed at 31 August and concluded it did not, which is defensible on its own terms, but the better framing is measurement: the company owns goods it must pay to remove, so the cost attaches to stock it already held at the reporting date rather than arising from a future decision. The net realisable value argument is technically sound and more conservative, and the independent quote makes the 2,000 reliably estimable. I therefore accept the extension. The effect shown is the 2,000 only, because the 22,000 is already carried at D058.",
+      "On review, the independent analysis's framing does not hold on its own: IAS 37 requires a present legal or constructive obligation arising from a past event before a cost can be accrued as a liability, and a disposal quote obtained for costing purposes is not an obligating event by itself. At 31 August nothing had been commissioned, ordered or publicly committed to, so no present obligation is evidenced. The 'negative net realisable value' argument is a measurement heuristic, not a substitute for that test, and it also proves too much: inventory cannot be carried below nil, so the 22,000 write-down already exhausts the asset carried at D058, and the 2,000 is not a write-down of anything, it is a forecast of future spending. I am retaining the 2,000 as an explicit, disclosed assumption rather than a required accrual, because the goods physically cannot be sold or stored indefinitely and removal is highly probable in substance even without a signed order. That is a conservatism choice the board should see clearly, not an automatic consequence of the measurement rule. Confidence is downgraded to low to flag that this line is assumption-driven. The fully defensible no-provision alternative, disclosing the 2,000 as a note only, is documented at U-10: it raises certified profit to 74,000, cuts liabilities to 406,000 and raises equity to 134,000, and the balance sheet still balances.",
     statementEffect: { profit: -2_000, cash: 0, assets: 0, liabilities: 2_000, equity: -2_000 },
     changedFromAI: true,
     agentsDisagreed: true,
     aggregationNote:
-      "The 22,000 write-off is carried by D058. This decision carries only the 2,000 disposal provision, so the two together charge 24,000 once.",
+      "The 22,000 write-off is carried by D058. This decision carries only the 2,000 disposal provision, so the two together charge 24,000 once. The provision is a labelled assumption, not a required accrual — see U-10 for the 74,000 no-provision alternative.",
   },
   {
     id: "D073",
